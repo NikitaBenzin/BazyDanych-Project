@@ -1,9 +1,9 @@
-$(document).ready(function () {
+// $(document).ready(function () {
 
-	$(".menu").click(function () {
-		var plik = $(this).attr("mup");
-		$("#strona").load(plik);
-	});
+// 	$(".menu").click(function () {
+// 		var plik = $(this).attr("mup");
+// 		$("#strona").load(plik);
+// 	});
 
 
-}); 
+// }); 

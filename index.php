@@ -9,17 +9,20 @@
 	<link rel="stylesheet" href="./css/styles.css">
 	<link rel="stylesheet" href="./css/header.css">
 	<link rel="stylesheet" href="./css/footer.css">
+	<link rel="stylesheet" href="./css/main.css">
 </head>
 
 <body>
 
 	<div class="container">
 		<?PHP
-		include './components/header.php';
+			include './components/header.php';
 		?>
 
 		<main>
-			<img src="./images/korza-chehol.png" alt="">
+			<div class="homepage-banner">
+				<h3>Akcesoria do <br>iPhone 13 Pro Max</h3>
+			</div>
 		</main>
 
 		<?PHP
