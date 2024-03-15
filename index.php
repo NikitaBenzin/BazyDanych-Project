@@ -17,7 +17,9 @@
 		include './components/header.php';
 		?>
 
-
+		<footer>
+			<a href="/" class="logo">iApple</a>
+		</footer>
 	</div>
 
 	<!-- SCRIPTS -->
