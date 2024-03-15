@@ -1,0 +1,94 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo{
+  color: rgb(16, 16, 16);
+  font-size: 25px;
+  font-weight: 700;
+  cursor: pointer;
+  user-select: none;
+  text-decoration: none;
+}
+
+.model-pick {
+  cursor: pointer;
+  position: relative;
+}
+
+.model-pick:hover > .drop-down-menu{
+  display: block;
+}
+
+.model-pick:hover > span > svg > path{
+  fill: rgb(16, 16, 16);
+}
+
+.model-pick > span{
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.model-pick > span > p{
+  color: rgb(16, 16, 16);
+  font-family: Montserrat;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+.drop-down-menu {
+  display: none;
+  border-radius: 0px 0px 30px 30px;
+  background-color: rgb(234, 234, 234); 
+  box-shadow: 0px 45px 45px 0px rgba(0, 0, 0, 0.05);
+  padding: 19px 0 29px 28px;
+
+  color: rgb(28, 28, 39);
+  font-size: 17px;
+  font-weight: 500;
+
+  position: absolute;
+  width: 100%;
+}
+
+.drop-down-menu-variants {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-left: 20px;
+  padding-top: 12px;
+}
+
+.drop-down-menu-variants > a {
+  color: rgb(16, 16, 16);
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.drop-down-menu-variants > a:hover {
+  text-decoration: underline;
+}
+
+
+header > nav {
+  display: flex;
+  gap: 5px;
+}
+
+header > nav > div {
+  cursor: pointer;
+  padding: 20px;
+}
+
+header > nav > div:last-child {
+  padding: 20px 0 20px 20px;
+}
+
+header > nav > div:hover > svg > path{
+  fill: rgb(16, 16, 16);
+}
