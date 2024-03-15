@@ -21,12 +21,12 @@ echo '<header>
   <div class="drop-down-menu">
     <p>Apple</p>
     <span class="drop-down-menu-variants">
-      <a href="#">iPhone 12</a>
-      <a href="#">iPhone 12 Max</a>
-      <a href="#">iPhone 13</a>
-      <a href="#">iPhone 13 Max</a>
-      <a href="#">iPhone 13 Pro Max</a>
-      <a href="#">iPhone 14</a>
+      <a class="link" href="#">iPhone 12</a>
+      <a class="link" href="#">iPhone 12 Max</a>
+      <a class="link" href="#">iPhone 13</a>
+      <a class="link" href="#">iPhone 13 Max</a>
+      <a class="link" href="#">iPhone 13 Pro Max</a>
+      <a class="link" href="#">iPhone 14</a>
     </span>
 
   </div>

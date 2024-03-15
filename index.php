@@ -8,6 +8,7 @@
 	<link rel="stylesheet" href="./css/bootstrap/bootstrap.min.css">
 	<link rel="stylesheet" href="./css/styles.css">
 	<link rel="stylesheet" href="./css/header.css">
+	<link rel="stylesheet" href="./css/footer.css">
 </head>
 
 <body>
@@ -17,9 +18,13 @@
 		include './components/header.php';
 		?>
 
-		<footer>
-			<a href="/" class="logo">iApple</a>
-		</footer>
+		<main>
+			<img src="./images/korza-chehol.png" alt="">
+		</main>
+
+		<?PHP
+			include './components/footer.php';
+		?>
 	</div>
 
 	<!-- SCRIPTS -->

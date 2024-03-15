@@ -63,14 +63,14 @@ header {
   padding-top: 12px;
 }
 
-.drop-down-menu-variants > a {
+.link {
   color: rgb(16, 16, 16);
   font-size: 15px;
   font-weight: 500;
   text-decoration: none;
 }
 
-.drop-down-menu-variants > a:hover {
+.link:hover {
   text-decoration: underline;
 }
 

@@ -1,0 +1,39 @@
+footer {
+  border-radius: 30px 30px 0px 0px;
+
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+  background: rgb(255, 255, 255);
+  padding: 29px 29px 0 29px;
+  min-height: 149px;
+
+}
+
+footer > div:nth-child(1) {
+  padding-bottom: 15px;
+}
+
+footer > div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding-bottom: 5px;
+}
+
+footer > div:nth-child(3) {
+  display: flex;
+  flex-direction: column;
+}
+
+footer > div:nth-child(3) > span {
+  padding-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding-bottom: 20px;
+}
+
+footer > div:nth-child(4) {
+  display: flex;
+  gap: 18px;
+  padding-bottom: 25px;
+}
