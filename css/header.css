@@ -1,7 +1,19 @@
 header {
   display: flex;
+  align-items: center;
+  padding-bottom: 20px;
+  justify-content: space-between;
+}
+
+.burger-menu {
+  display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 70%;
+}
+
+.burger {
+  display: none;
 }
 
 .logo{
@@ -74,21 +86,70 @@ header {
   text-decoration: underline;
 }
 
-
-header > nav {
+.header-nav {
   display: flex;
   gap: 5px;
 }
 
-header > nav > div {
+.header-nav > div {
   cursor: pointer;
   padding: 20px;
 }
 
-header > nav > div:last-child {
+.header-nav > div:last-child {
   padding: 20px 0 20px 20px;
 }
 
-header > nav > div:hover > svg > path{
+.header-nav > div:hover > svg > path{
   fill: rgb(16, 16, 16);
+}
+
+@media (max-width: 768px) {
+  .burger {
+    display: block;
+    padding: 20px;
+    cursor: pointer;
+  }
+
+  .burger-menu {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    position: absolute;
+    border-radius: 0px 0px 0px 20px;
+    background: rgb(255, 255, 255);
+    top: 0;
+    right: 0;
+    padding: 20px 0 0 25px;
+    width: 294px;
+  }
+
+  .drop-down-menu{
+    display: block;
+    background: rgb(255, 255, 255);
+    box-shadow: none;
+    position: relative;
+  }
+
+  .header-nav > div {
+    padding: 0px 20px 20px 0px;
+  }
+
+  .header-nav > div:last-child {
+    padding: 0px 0 20px 20px;
+  }
+
+  .burger-bg {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(48, 48, 48, 0.418);
+  }
+}
+
+.open {
+  display: flex;
 }
