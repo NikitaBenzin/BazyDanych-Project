@@ -1,0 +1,46 @@
+Products = [
+  {
+    --product id
+    --product name
+    --description
+    --price
+    --discount
+    --quantity
+    --branded (Apple) product?
+  }
+],
+
+Colors = [
+  {
+    --product id
+    --HEX color
+    --product image with current color
+  }
+],
+
+Favorites = [
+  {
+    --id of products[]
+  }
+],
+
+Cart = [
+  {
+    --id of products[]
+  }
+],
+
+Orders information = [
+  {
+    --order number     
+    --city             
+    --postal code      
+    --street address   
+    --apartment number 
+    --phone number     
+    --pay method       
+    --pay amount       
+    --id of products[]
+  }
+],
+
