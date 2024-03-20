@@ -1,10 +1,12 @@
 $(document).ready(function () {
   // PHP
-  // $(".menu").click(function () {
-  // 	var plik = $(this).attr("mup");
-  // 	$("#strona").load(plik);
-  // });
+  $(".etui-types-card").click(function () {
+    var productId = $(this).attr("product-id"); // Получить ID товара из атрибута data
+    getProductInfo(productId); // Вызвать функцию для получения информации о товаре
+  });
 
+
+  // VISUAL
   $(".burger").click(function () {
     $(".burger-bg, .burger-menu").addClass("open");
     $("body").addClass("burger-menu-open");
@@ -25,4 +27,17 @@ $(document).ready(function () {
     }
   });
 
-}); 
+
+});
+
+
+function getProductInfo(productId) {
+  $.ajax({
+    url: 'components/pages/product.php', // Путь к PHP-скрипту для получения информации о товаре
+    type: 'POST',
+    data: { productId: productId }, // Передать ID товара на сервер
+    success: function (response) {
+      $("#main").html(response); // Вывести информацию о товаре на странице
+    }
+  });
+}

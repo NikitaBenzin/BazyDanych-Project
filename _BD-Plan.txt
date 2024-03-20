@@ -1,4 +1,4 @@
-Products = [
+products = [
   {
     --product id
     --product name
@@ -7,31 +7,24 @@ Products = [
     --discount
     --quantity
     --branded (Apple) product?
+    --id of category
   }
 ],
 
-Colors = [
+products_category = [
   {
-    --product id
-    --HEX color
-    --product image with current color
+    --product_id
+    --category_id
+    --product_images (JSON)product image with current (HEX)color
   }
-],
+]
 
-Favorites = [
+users = [
   {
-    --id of products[]
-  }
-],
+    --Favorites: id of products[]
+    --Cart: id of products[]
 
-Cart = [
-  {
-    --id of products[]
-  }
-],
-
-Orders information = [
-  {
+    // Order Information
     --order number     
     --city             
     --postal code      
@@ -41,6 +34,6 @@ Orders information = [
     --pay method       
     --pay amount       
     --id of products[]
+    --color of product
   }
 ],
-
