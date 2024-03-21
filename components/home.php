@@ -2,9 +2,6 @@
 
 include("dbconfig.php");
 
-$sql = "SELECT * FROM `products`";
-$result = mysqli_query($connect, $sql);
-
 // JSON 
 $pdo = new PDO("mysql:dbname=" . $db_name . ";host=" . $db_server, $db_user, $db_pass);
 
@@ -28,6 +25,7 @@ if (mysqli_num_rows($result) > 0) {
     ';
   };
 }
+
 
 echo '
 

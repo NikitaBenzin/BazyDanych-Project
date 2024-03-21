@@ -163,6 +163,7 @@ ul {
   padding: 50px 21px 32px 21px;
   display: flex;
   justify-content: space-between;
+  gap: 15px;
 }
 
 .card-info-name {
@@ -176,6 +177,7 @@ ul {
   flex-direction: column;
   align-items: flex-end;
   white-space: nowrap;
+  min-width: 75px;
 }
 
 .card-info-price-current {
@@ -214,4 +216,104 @@ ul {
   .cards {
     grid-template-columns: auto;
   }
+}
+
+/* PRODUCT */
+.favorite-icon {
+  margin-left: auto;
+}
+
+.product {
+  width: 100%;
+}
+
+.product > .card-info{
+  padding: 21px 21px 21px 21px;
+}
+
+
+#big-image {
+  padding-top: 20px;
+}
+
+#big-image > img{ 
+  max-height: 300px;  
+}
+
+#small-images {
+  display: flex;
+  border-radius: 15px;
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+  background: rgb(255, 255, 255);
+
+  width: 100%;
+  padding: 22px 13px 16px 13px;
+}
+
+#small-images img {
+  max-height: 100px;
+}
+
+.slide-block {
+  width: 100%;
+  margin: 30px 0px;
+  border-radius: 15px;
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+  background: rgb(249, 249, 249);
+}
+
+.slide-btn {
+  border-radius: 15px;
+  
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+  background: rgb(255, 255, 255);
+  border: none;
+  
+  width: 100%;
+  height: 65px;
+  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 24px;
+}
+
+.slide-btn > p {
+  color: rgb(16, 16, 16);
+  font-family: Montserrat;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.slide-info{
+  display: none;
+  padding: 15px 24px;
+  color: rgb(0, 0, 0);
+  font-family: Montserrat;
+  font-size: 15px;
+  font-weight: 400;
+
+}
+
+.back-btn {
+  display: flex;
+  padding: 15px 15px;
+  align-self: flex-start;
+  align-items: end;
+  cursor: pointer;
+}
+
+.back-btn:hover > svg > path {
+  fill: rgb(28, 28, 39);
+}
+
+.back-btn > p {
+  color: #838383;
+  font-family: Montserrat;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.back-btn:hover > p{
+  color: rgb(28, 28, 39);
 }
