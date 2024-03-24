@@ -43,7 +43,21 @@ if ($product["branded"] == 1) {
   ';
 }
 
+// COLOR PICKER
+$colorPicker = '';
 
+if (count($json_data) > 1) {
+  foreach ($json_data as $key) {
+    $colorPicker .= '
+    <label class="color-picker-label" for="' . $productId . '">
+      <input id="' . $productId . '" type="radio" name="option" class="hidden-radio">
+      <img src="' . $key['color'] . '" alt="" class="custom-radio"> 
+    </label>
+    ';
+  }
+} else {
+  $colorPicker .= 'Monokolor';
+}
 // Product information
 echo '
   <div class="back-btn">
@@ -51,44 +65,51 @@ echo '
     <p>Back</p>
   </div>
 
-  <div class="card product">
-    <div class="card-favorite">
-      ' . $product_branded . '
+  <div class="product">
+      
+    <div class="card">
+      <div class="card-favorite">
+        ' . $product_branded . '
 
-      <svg class="favorite-icon" width="25.000000" height="31.000000" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-        <desc></desc>
-        <defs />
-        <path fill="#1C1C27" id="Vector" d="M10.48 1.65C13.07 -0.63 17.06 -0.56 19.55 1.9C22.04 4.35 22.12 8.26 19.81 10.81L10.48 20L1.15 10.81C-1.16 8.26 -1.07 4.34 1.41 1.9C3.91 -0.55 7.89 -0.64 10.48 1.65ZM17.99 3.42C16.34 1.8 13.68 1.73 11.95 3.26L10.48 4.56L9.01 3.26C7.28 1.73 4.62 1.8 2.97 3.43C1.33 5.04 1.25 7.62 2.76 9.32L10.48 16.93L18.2 9.33C19.71 7.62 19.63 5.04 17.99 3.42Z" fill="#838383" fill-opacity="1.000000" fill-rule="nonzero" />
-      </svg>
-    </div>
+        <svg class="favorite-icon" width="25.000000" height="31.000000" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <desc></desc>
+          <defs />
+          <path fill="#1C1C27" id="Vector" d="M10.48 1.65C13.07 -0.63 17.06 -0.56 19.55 1.9C22.04 4.35 22.12 8.26 19.81 10.81L10.48 20L1.15 10.81C-1.16 8.26 -1.07 4.34 1.41 1.9C3.91 -0.55 7.89 -0.64 10.48 1.65ZM17.99 3.42C16.34 1.8 13.68 1.73 11.95 3.26L10.48 4.56L9.01 3.26C7.28 1.73 4.62 1.8 2.97 3.43C1.33 5.04 1.25 7.62 2.76 9.32L10.48 16.93L18.2 9.33C19.71 7.62 19.63 5.04 17.99 3.42Z" fill="#838383" fill-opacity="1.000000" fill-rule="nonzero" />
+        </svg>
+      </div>
 
-    <div id="big-image">
-      <img src="' . $json_data[0]['blue-phone'] . '" id="big">
-    </div>
-    
-    <section class="card-info">
-      <p class="card-info-name">' . $product["product_name"] . '</p>
-      <section class="card-info-price">
-        <span class="card-info-price-current">' . $product_prise . '</span>
-        <span class="card-info-price-previous">
-          <span class="crossed-out-price">' . $product_discount_prise . '</span>
-          <span class="discount">' . $product_discount . '</span>
-        </span>
+      <div id="big-image">
+        <img src="' . $json_data[0]['images'][0] . '" id="big">
+      </div>
+      
+      <section class="card-info">
+        <p class="card-info-name">' . $product["product_name"] . '</p>
+        <section class="card-info-price">
+          <span class="card-info-price-current">' . $product_prise . '</span>
+          <span class="card-info-price-previous">
+            <span class="crossed-out-price">' . $product_discount_prise . '</span>
+            <span class="discount">' . $product_discount . '</span>
+          </span>
+        </section>
       </section>
-    </section>
 
-    <div id="small-images">
-      <a href="' . $json_data[0]['blue-phone'] . '">
-        <img src="' . $json_data[0]['blue-phone'] . '">
-      </a>
-    
-      <a href="' . $json_data[0]['black-phone'] . '">
-        <img src="' . $json_data[0]['black-phone'] . '">
-      </a>
+      <div id="small-images">
+        <a class="small-image-active" href="' . $json_data[0]['images'][0] . '">
+          <img src="' . $json_data[0]['images'][0] . '">
+        </a>
+      
+        <a href="' . $json_data[0]['images'][1] . '">
+          <img src="' . $json_data[0]['images'][1] . '">
+        </a>
+      </div>
+
     </div>
-
+    
+    <div class="color-picker">
+    <label>Kolor: </label>
+    ' . $colorPicker . '
+    </div>
   </div>
-
   
   <span class="slide-block">
     <button class="slide-btn">
@@ -100,14 +121,17 @@ echo '
 
 
   <script>
-    $(".slide-btn").click(function () {
-      $(".slide-info").toggle("linear");
-    });
+    var url = "' . $product["product_name"] . '".replace(/ /g, "-");  
 
-    $(".back-btn").click(function () {
-      $("#main").load("components/home.php");
-    });
+    var newURL = `${url}`;
+    
+    var newStateTitle = "Product";
+    
+    var stateData = { page: "' . $productId . '" };
+    
+    history.pushState(stateData, newStateTitle, newURL);
   </script>
+  <script src="../../js/product.js"></script>
 ';
 
 

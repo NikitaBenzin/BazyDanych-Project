@@ -2,7 +2,16 @@ $(document).ready(function () {
   // PHP
   $(".etui-types-card").click(function () {
     var productId = $(this).attr("product-id"); // Получить ID товара из атрибута data
-    getProductInfo(productId); // Вызвать функцию для получения информации о товаре
+    var productName = $(this).attr("product-name"); // Получить ID товара из атрибута data
+    scrollToTop();
+    getProductInfo(productId, productName); // Вызвать функцию для получения информации о товаре
+  });
+
+  $(".card").click(function () {
+    var productId = $(this).attr("product-id"); // Получить ID товара из атрибута data
+    var productName = $(this).attr("product-name"); // Получить ID товара из атрибута data
+    scrollToTop();
+    getProductInfo(productId, productName); // Вызвать функцию для получения информации о товаре
   });
 
 
@@ -27,13 +36,10 @@ $(document).ready(function () {
     }
   });
 
-
-
-
 });
 
 
-function getProductInfo(productId) {
+function getProductInfo(productId, productName) {
   $.ajax({
     url: 'components/pages/product.php', // Путь к PHP-скрипту для получения информации о товаре
     type: 'POST',
@@ -41,5 +47,13 @@ function getProductInfo(productId) {
     success: function (response) {
       $("#main").html(response); // Вывести информацию о товаре на странице
     }
+  });
+}
+
+
+function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth' // Для плавной прокрутки
   });
 }

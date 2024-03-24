@@ -42,3 +42,7 @@ header, main, footer {
 .burger-menu-open {
 	overflow-y: hidden;
 }
+
+a {
+	text-decoration: none;
+}
