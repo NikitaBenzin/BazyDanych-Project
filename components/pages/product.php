@@ -6,6 +6,7 @@ $pdo = new PDO("mysql:dbname=" . $db_name . ";host=" . $db_server, $db_user, $db
 
 // Получение ID товара из POST-запроса
 $productId = $_POST['productId'];
+$index = $_POST['index'];
 
 // Connect to the PRODUCT table
 $productTable = $pdo->prepare("SELECT * FROM products WHERE id = :productId");
@@ -45,19 +46,23 @@ if ($product["branded"] == 1) {
 
 // COLOR PICKER
 $colorPicker = '';
+$colorPickerIndex = 0;
 
 if (count($json_data) > 1) {
   foreach ($json_data as $key) {
     $colorPicker .= '
-    <label class="color-picker-label" for="' . $productId . '">
-      <input id="' . $productId . '" type="radio" name="option" class="hidden-radio">
+    <label class="color-picker-label" for="' . $colorPickerIndex . '">
+      <input id="' . $colorPickerIndex . '" data-color="' . $colorPickerIndex . '" type="radio" name="color" class="hidden-radio">
       <img src="' . $key['color'] . '" alt="" class="custom-radio"> 
     </label>
     ';
+    $colorPickerIndex += 1;
   }
 } else {
   $colorPicker .= 'Monokolor';
 }
+
+
 // Product information
 echo '
   <div class="back-btn">
@@ -79,7 +84,7 @@ echo '
       </div>
 
       <div id="big-image">
-        <img src="' . $json_data[0]['images'][0] . '" id="big">
+        <img src="' . $json_data[$index]['images'][0] . '" id="big">
       </div>
       
       <section class="card-info">
@@ -94,12 +99,12 @@ echo '
       </section>
 
       <div id="small-images">
-        <a class="small-image-active" href="' . $json_data[0]['images'][0] . '">
-          <img src="' . $json_data[0]['images'][0] . '">
+        <a class="small-image-active" href="' . $json_data[$index]['images'][0] . '">
+          <img src="' . $json_data[$index]['images'][0] . '">
         </a>
       
-        <a href="' . $json_data[0]['images'][1] . '">
-          <img src="' . $json_data[0]['images'][1] . '">
+        <a href="' . $json_data[$index]['images'][1] . '">
+          <img src="' . $json_data[$index]['images'][1] . '">
         </a>
       </div>
 
@@ -121,15 +126,34 @@ echo '
 
 
   <script>
-    var url = "' . $product["product_name"] . '".replace(/ /g, "-");  
+  var url = "' . $product["product_name"] . '".replace(/ /g, "-");  
+  
+  var newURL = `${url}`;
+  
+  var newStateTitle = "Product";
+  
+  var stateData = { page: "' . $productId . '" };
+  
+  history.pushState(stateData, newStateTitle, newURL);  
 
-    var newURL = `${url}`;
-    
-    var newStateTitle = "Product";
-    
-    var stateData = { page: "' . $productId . '" };
-    
-    history.pushState(stateData, newStateTitle, newURL);
+  
+  document.querySelectorAll(\'input[name="color"]\')[' . $index . '].checked = true;
+  
+  $("input[name=\'color\']").click(function () {
+    var index = parseInt($(this).data(\'color\'));
+
+    $.ajax({
+      url: \'components/pages/product.php\', 
+      type: \'POST\',
+      data: {
+        productId: ' . $productId . ',
+        index: index 
+      },
+      success: function (response) {
+        $("#main").html(response);
+      }
+    });
+  });
   </script>
   <script src="../../js/product.js"></script>
 ';

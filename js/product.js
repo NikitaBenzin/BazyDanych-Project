@@ -17,6 +17,4 @@ $(document).ready(function () {
     $("#small-images > a").removeClass("small-image-active");
     $(this).addClass("small-image-active");
   });
-
-  //document.getElementById("myRadio").checked = true;
 });

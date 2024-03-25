@@ -43,7 +43,10 @@ function getProductInfo(productId, productName) {
   $.ajax({
     url: 'components/pages/product.php', // Путь к PHP-скрипту для получения информации о товаре
     type: 'POST',
-    data: { productId: productId }, // Передать ID товара на сервер
+    data: {
+      productId: productId,
+      index: 0
+    }, // Передать ID товара на сервер
     success: function (response) {
       $("#main").html(response); // Вывести информацию о товаре на странице
     }

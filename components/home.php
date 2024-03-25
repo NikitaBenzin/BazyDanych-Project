@@ -20,7 +20,7 @@ if (mysqli_num_rows($result) > 0) {
     $json_data = json_decode($category['product_images'], true);
 
     $etuiSection .= '
-    <li class="etui-types-card" product-id="' . $product["id"] . ' product-name="' . $product["product_name"] . '">
+    <li class="etui-types-card" product-id="' . $product["id"] . '" product-name="' . $product["product_name"] . '">
       <img src="' . $json_data[0]['images'][0] . '" alt="' . $product["preview_name"] . ' etui">
       <p>' . $product["preview_name"] . '</p>
     </li>
