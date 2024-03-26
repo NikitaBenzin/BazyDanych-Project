@@ -1,7 +1,7 @@
 header {
   display: flex;
   align-items: center;
-  padding-bottom: 20px;
+  margin: 22px 0px;
   justify-content: space-between;
 }
 
@@ -89,17 +89,9 @@ header {
 
 .header-nav {
   display: flex;
-  gap: 5px;
+  gap: 45px;
 }
 
-.header-nav > div {
-  cursor: pointer;
-  padding: 20px;
-}
-
-.header-nav > div:last-child {
-  padding: 20px 0 20px 20px;
-}
 
 .header-nav > div:hover > svg > path{
   fill: rgb(16, 16, 16);
@@ -133,13 +125,7 @@ header {
     position: relative;
   }
 
-  .header-nav > div {
-    padding: 0px 20px 20px 0px;
-  }
 
-  .header-nav > div:last-child {
-    padding: 0px 0 20px 20px;
-  }
 
   .burger-bg {
     display: none;
@@ -155,4 +141,28 @@ header {
 
 .open {
   display: flex;
+}
+
+.nav-cart, .nav-favorite {
+  position: relative;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.cart-amount {
+  position: absolute;
+  top: 5px;
+  right: 0px;
+  width: 17px;
+  height: 17px;
+  background: orange;
+  border-radius: 100%;
+  text-align: center;
+  align-content: center;
+
+
+  color: rgb(255, 255, 255);
+  font-family: Montserrat;
+  font-size: 15px;
+  font-weight: 500;
 }

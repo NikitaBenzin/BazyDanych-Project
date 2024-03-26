@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 26, 2024 at 10:33 AM
+-- Generation Time: Mar 26, 2024 at 07:18 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -81,6 +81,26 @@ INSERT INTO `products_category` (`product_id`, `category_id`, `product_images`) 
 (14, 2, '[\r\n{\r\n    \"color\": \"\",\r\n    \"images\": [\r\n      \"https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/HQ6Q2?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1664910915657\",\r\n      \"https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/HQ6Q2_AV2?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1664910916524\"\r\n    ]\r\n  }\r\n]'),
 (15, 2, '[\r\n{\r\n    \"color\": \"\",\r\n    \"images\": [\r\n      \"https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/MQLU3?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1666191613710\",\r\n      \"https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/MQLU3_AV2?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1664477824855\"\r\n    ]\r\n  }\r\n]');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `user_id` int(11) NOT NULL,
+  `session_id` varchar(255) NOT NULL,
+  `favorites` text DEFAULT NULL,
+  `cart` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci COMMENT='Table woth user ids and cart products';
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`user_id`, `session_id`, `favorites`, `cart`) VALUES
+(6, '6602f7bad27f8', '[]', '[]');
+
 --
 -- Indexes for dumped tables
 --
@@ -103,6 +123,12 @@ ALTER TABLE `products_category`
   ADD KEY `product_id` (`product_id`);
 
 --
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`user_id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -117,6 +143,12 @@ ALTER TABLE `products`
 --
 ALTER TABLE `products_category`
   MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables

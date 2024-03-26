@@ -132,7 +132,6 @@ ul {
   position: relative;
   display: flex;
   align-items: center;
-  cursor: pointer;
   
   border: none;
 }
@@ -151,6 +150,8 @@ ul {
   align-items: center;
   padding: 15px 22px 0 22px;
 }
+
+
 
 .favorite-icon:hover > path{
   fill: rgb(255, 165, 66);
@@ -172,6 +173,11 @@ ul {
   display: flex;
   justify-content: space-between;
   gap: 15px;
+  cursor: pointer;
+}
+
+.card-info:hover .card-info-name {
+  color:rgb(255, 165, 66);
 }
 
 .card-info-name {
@@ -229,6 +235,7 @@ ul {
 /* PRODUCT */
 .favorite-icon {
   margin-left: auto;
+  cursor: pointer;
 }
 
 .product {
@@ -413,6 +420,7 @@ ul {
   background: rgb(16, 16, 16);
   min-width: 254px;
   min-height: 45px;
+  border: none;
 }
 
 #add-to-cart > span {

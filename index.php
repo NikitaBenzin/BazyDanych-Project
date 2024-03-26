@@ -16,9 +16,11 @@
 <body>
 
 	<div class="container">
-		<?PHP
-		include './components/header.php';
-		?>
+		<header id="header">
+			<?PHP
+			include './components/header.php';
+			?>
+		</header>
 
 		<main id="main">
 			<?PHP
@@ -26,9 +28,11 @@
 			?>
 		</main>
 
-		<?PHP
-		include './components/footer.php';
-		?>
+		<footer id="footer" class="row">
+			<?PHP
+			include './components/footer.php';
+			?>
+		</footer>
 	</div>
 
 	<!-- SCRIPTS -->

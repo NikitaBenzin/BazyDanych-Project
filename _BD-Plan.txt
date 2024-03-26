@@ -22,10 +22,16 @@ products_category = [
 users = [
   {
     --user id
+    --session id
     --Favorites: id of products[]
     --Cart: id of products[]
+  }
+],
 
+orders = [
+  {
     // Order Information
+    --user id
     --order number     
     --city             
     --postal code      
@@ -37,4 +43,4 @@ users = [
     --id of products[]
     --color of product
   }
-],
+]
