@@ -70,7 +70,7 @@ echo '
     <p>Back</p>
   </div>
 
-  <div class="product">
+  <div id="' . $productId . '" class="product">
       
     <div class="card">
       <div class="card-favorite">
@@ -110,12 +110,21 @@ echo '
 
     </div>
     
-    <div class="color-picker">
-    <label>Kolor: </label>
-    ' . $colorPicker . '
+    <div class="product-interaction">
+      <div class="color-picker">
+        <label>Kolor: </label>
+        ' . $colorPicker . '
+      </div>
+      <button type="submit" id="add-to-cart">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path fill="#FFFFFF" d="M280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM246-720l96 200h280l110-200H246Zm-38-80h590q23 0 35 20.5t1 41.5L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68-39.5t-2-78.5l54-98-144-304H40v-80h130l38 80Zm134 280h280-280Z"/></svg>
+        <span>Włóż do torby</span>
+      </button>
     </div>
+
   </div>
   
+
+
   <span class="slide-block">
     <button class="slide-btn">
       <p>Informacje o produkcie</p>
@@ -124,38 +133,12 @@ echo '
     <p class="slide-info">' . $product["description"] . '</p>
   </span>
 
-
   <script>
-  var url = "' . $product["product_name"] . '".replace(/ /g, "-");  
-  
-  var newURL = `${url}`;
-  
-  var newStateTitle = "Product";
-  
-  var stateData = { page: "' . $productId . '" };
-  
-  history.pushState(stateData, newStateTitle, newURL);  
-
-  
-  document.querySelectorAll(\'input[name="color"]\')[' . $index . '].checked = true;
-  
-  $("input[name=\'color\']").click(function () {
-    var index = parseInt($(this).data(\'color\'));
-
-    $.ajax({
-      url: \'components/pages/product.php\', 
-      type: \'POST\',
-      data: {
-        productId: ' . $productId . ',
-        index: index 
-      },
-      success: function (response) {
-        $("#main").html(response);
-      }
-    });
-  });
+    document.querySelectorAll(\'input[name="color"]\')[' . $index . '].checked = true;
   </script>
-  <script src="../../js/product.js"></script>
+
+
+  <script src="../../js/product.js"></>
 ';
 
 

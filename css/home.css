@@ -346,11 +346,8 @@ ul {
 .color-picker {
   display: flex;
   gap: 8px;
-  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
-  background: rgb(255, 255, 255);
-  padding: 13px;
-  border-radius: 15px;
   align-items: center;
+  margin-bottom: 18px;
 }
 
 .color-picker-label {
@@ -383,11 +380,11 @@ ul {
 
 @media (min-width: 768px) {
   .product > .card {
-    margin-bottom: 15px;
+    margin-bottom: 0px;
   }
 
   .product > .card {
-    width: 50%;
+    width: 60%;
   }
 
   .product {
@@ -399,4 +396,28 @@ ul {
   .color-picker {
     align-self: flex-start;
   }
+}
+
+.product-interaction {
+  height: fit-content;
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+  background: rgb(255, 255, 255);
+  padding: 13px;
+  border-radius: 15px;
+}
+
+#add-to-cart {
+  border-radius: 10px;
+
+  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.5);
+  background: rgb(16, 16, 16);
+  min-width: 254px;
+  min-height: 45px;
+}
+
+#add-to-cart > span {
+  color: rgb(255, 255, 255);
+  font-family: Montserrat;
+  font-size: 15px;
+  font-weight: 500;
 }

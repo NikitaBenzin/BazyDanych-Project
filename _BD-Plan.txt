@@ -21,6 +21,7 @@ products_category = [
 
 users = [
   {
+    --user id
     --Favorites: id of products[]
     --Cart: id of products[]
 
