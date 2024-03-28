@@ -38,7 +38,7 @@ $(document).ready(function () {
       url: 'components/pages/product.php',
       type: 'POST',
       data: {
-        productId: $('.product').attr('id') || history.state,
+        productId: $('.product').attr('product-id'),
         index: index
       },
       success: function (response) {

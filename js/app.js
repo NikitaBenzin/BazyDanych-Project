@@ -15,7 +15,7 @@ $(document).ready(function () {
 
   // Adding to the favorites list
   $(".favorite-icon").click(function () {
-    var favoriteProductId = $(this).attr("product-id"); // Получить ID товара из атрибута data
+    var favoriteProductId = $(this).attr("data-product-id"); // Получить ID товара из атрибута data
 
     addToFavorite(favoriteProductId);
   });
