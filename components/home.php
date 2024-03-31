@@ -121,6 +121,7 @@ echo '
 
 <script>
   let favorites = ' . json_encode($json_data) . ';
+
   var favoriteIcons = document.querySelectorAll(".favorite-icon");
 
   favoriteIcons.forEach((icon) => {

@@ -30,6 +30,27 @@ $(document).ready(function () {
 
   history.pushState(stateData, newStateTitle, newURL);
 
+  // Adding to the favorites list
+  $(".favorite-icon").click(function () {
+    var favoriteProductId = $(this).attr("data-product-id"); // Получить ID товара из атрибута data
+
+    if ($(this).hasClass('in-favorites')) {
+      removeFavorite(favoriteProductId);
+    } else {
+      addToFavorite(favoriteProductId);
+    }
+  });
+
+
+  $(".favorite-icon").click(function () {
+
+    if ($(this).hasClass("in-favorites")) {
+      $(this).removeClass("in-favorites");
+    }
+    else {
+      $(this).addClass("in-favorites");
+    }
+  });
 
   $("input[name='color']").click(function () {
     var index = parseInt($(this).data('color'));
@@ -47,3 +68,32 @@ $(document).ready(function () {
     });
   });
 });
+
+
+
+function addToFavorite(favoriteProductId) {
+  $.ajax({
+    url: 'components/header.php',
+    type: 'POST',
+    data: {
+      favoriteProductId: favoriteProductId
+    },
+    success: function (response) {
+      $("#header").html(response);
+    }
+  });
+}
+
+
+function removeFavorite(removeFavoriteProductId) {
+  $.ajax({
+    url: 'components/header.php',
+    type: 'POST',
+    data: {
+      removeFavoriteProductId: removeFavoriteProductId
+    },
+    success: function (response) {
+      $("#header").html(response);
+    }
+  });
+}
