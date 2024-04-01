@@ -51,13 +51,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
       $cart = json_decode($cart_json, true);
 
-      $new_item = $_POST['cartProductId'];
-      $cart[] = $new_item;
+      $isInCart = false;
+      foreach ($cart as $cartProductId) {
+        if ($cartProductId == $_POST['cartProductId']) {
+          $isInCart = true;
+        }
+      }
 
-      $updated_cart_json = json_encode($cart);
+      if (!$isInCart) {
+        $new_item = $_POST['cartProductId'];
+        $cart[] = $new_item;
 
-      $update_query = "UPDATE users SET cart = '$updated_cart_json' WHERE session_id = '$sessionId'";
-      mysqli_query($dbConnection, $update_query);
+        $updated_cart_json = json_encode($cart);
+
+        $update_query = "UPDATE users SET cart = '$updated_cart_json' WHERE session_id = '$sessionId'";
+        mysqli_query($dbConnection, $update_query);
+      }
     }
     $dbConnection->close();
   }
@@ -86,6 +95,36 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Обновляем запись в базе данных с новым значением поля favorites
     $stmt = $pdo->prepare("UPDATE users SET favorites = :favorites WHERE session_id = :session_id");
     $stmt->bindParam(':favorites', $favorites_json);
+    $stmt->bindParam(':session_id', $_SESSION['user_id']);
+    $stmt->execute();
+
+    $pdo = null;
+  }
+
+  if (isset($_POST['removeCartProductId'])) {
+    $productId = $_POST['removeCartProductId'];
+
+    $pdo = new PDO("mysql:dbname=" . $db_name . ";host=" . $db_server, $db_user, $db_pass);
+    $stmt = $pdo->prepare("SELECT cart FROM users WHERE session_id = :session_id");
+    $stmt->bindParam(':session_id', $_SESSION['user_id']);
+    $stmt->execute();
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    $cart = json_decode($user['cart'], true);
+
+    $cartNew = [];
+    foreach ($cart as $cartProductId) {
+      if ($cartProductId != $productId) {
+        array_push($cartNew, $cartProductId);
+      }
+    }
+
+    // Преобразуем массив обратно в JSON-строку
+    $cart_json = json_encode($cartNew);
+
+    // Обновляем запись в базе данных с новым значением поля cart
+    $stmt = $pdo->prepare("UPDATE users SET cart = :cart WHERE session_id = :session_id");
+    $stmt->bindParam(':cart', $cart_json);
     $stmt->bindParam(':session_id', $_SESSION['user_id']);
     $stmt->execute();
 

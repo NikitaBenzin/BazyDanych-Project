@@ -27,11 +27,10 @@ header, main, footer {
 }
 
 .container {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+	display: grid;
+	grid-template-rows: auto 1fr auto;
 	max-width: 1110px;
-
+	min-height: 100vh;
 	position: relative;
 }
 
@@ -49,4 +48,8 @@ a {
 	flex-direction: column;
 	gap: 20px;
 	text-align: center;
+}
+
+.hidden {
+	display: none;
 }

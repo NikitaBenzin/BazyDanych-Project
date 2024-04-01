@@ -386,6 +386,7 @@ ul {
 }
 
 @media (min-width: 768px) {
+
   .product > .card {
     margin-bottom: 0px;
   }
@@ -428,4 +429,227 @@ ul {
   font-family: Montserrat;
   font-size: 15px;
   font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  #add-to-cart {
+    width: 100%;
+  }
+}
+
+/* Favorites  */
+.empty-cart {
+  text-align: center;
+}
+
+.empty-cart > h3 {
+  color: rgb(16, 16, 16);
+  font-size: 20px;
+  font-weight: 500;
+  margin-top: 20px;
+}
+
+.cards .empty-cart {
+  display: grid;
+  justify-items: center;
+  grid-column-start: 1;
+  grid-column-end: 4;
+}
+
+.delete-icon {
+  margin-left: auto;
+  cursor: pointer;
+}
+
+.cart {
+  padding-top: 20px;
+  display: grid;
+  gap: 13px;
+}
+
+.cart .card-image {
+  margin-left: 10px;
+  max-width: 146.53px;
+}
+
+.cart .card-info {
+  flex-direction: column;
+  align-items: start;
+  gap: 12px;
+  padding-left: 0;
+  padding-bottom: 0;
+  padding-right: 28px;
+  cursor: default;
+}
+
+.cart .card-info-price {
+  min-width: 0;
+}
+
+.cart .card {
+  min-height: 218px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+}
+
+.cart .card-favorite {
+  top: 0;
+}
+
+.cart .card-info-price-current {
+  color: rgb(170, 170, 170);
+  font-size: 15px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.products .card:hover {
+  top: 0px;
+}
+
+.cart .product-amount {
+  display: flex;
+  grid-column: span 2;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 28px;
+}
+
+
+.quantity_inner * {
+  box-sizing: border-box;    
+}    
+.quantity_inner {
+  display: inline-flex;
+  border-radius: 26px;
+  border: 2px solid #FFCE7F;
+}        
+.quantity_inner .bt_minus,
+.quantity_inner .bt_plus,
+.quantity_inner .quantity {
+  height: 40px;
+  width: 40px;
+  padding: 0;
+  border: 0;
+  margin: 0;
+  background: transparent;
+  cursor: pointer;
+  outline: 0;
+}
+.quantity_inner .quantity {
+  width: 50px;
+  text-align: center;
+  font-size: 17px;
+  font-weight: bold;
+  color: #000;
+  font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
+}
+.quantity_inner .bt_minus svg,
+.quantity_inner .bt_plus svg {
+  stroke: #337AB7;
+  stroke-width: 4;
+  transition: 0.5s;
+  margin: 10px;
+}    
+.quantity_inner .bt_minus:hover svg,
+.quantity_inner .bt_plus:hover svg {
+  stroke: #000;
+}
+
+.bt_minus, .bt_plus {
+  font-size: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cart .card-info:hover .card-info-name {
+  color: rgb(28, 28, 39);
+}
+
+.cart .card-info-price .card-info-price-current {
+  align-self: flex-start;
+}
+
+@media (max-width: 768px) {
+  #add-to-cart {
+    width: 100%;
+  }
+
+  .card-info-name {
+    font-size: 15px;
+  }
+
+  .cart .card-image {
+    max-height: 76px;
+  }
+}
+
+.cart-section {
+  display: grid;
+  grid-template-columns: auto 348.98px;
+  gap: 128px;
+}
+
+
+@media (max-width: 992px) {
+  .cart-section {
+    gap: 64px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cart-section {
+    grid-template-columns: 1fr;
+  }
+}
+
+.total {
+  margin-top: 20px;
+  border-radius: 30px;
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+  background: rgb(255, 255, 255);
+  height: fit-content;
+}
+
+.total-info {
+  color: rgb(0, 0, 0);
+  font-size: 15px;
+  font-weight: 600;
+
+  display: flex;
+  justify-content: space-between;
+  padding: 21px 21px 13px 21px;
+}
+
+@media (max-width: 768px) {
+  .total {
+    position: sticky;
+    bottom: 29px;
+    left: 0px;
+    width: -webkit-fill-available;
+    margin-top: 0;
+  }
+}
+
+#checkout {
+  border-radius: 20px;
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.25);
+  background: rgb(16, 16, 16);
+  width: 100%;
+  min-width: 254px;
+  min-height: 65px;
+  border: none;
+
+  color: rgb(255, 255, 255);
+  font-family: Montserrat;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.totalField {
+  color: rgb(28, 28, 39);
+  font-family: Montserrat;
+  font-size: 15px;
+  font-weight: 600;
 }
