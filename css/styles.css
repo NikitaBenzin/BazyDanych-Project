@@ -50,6 +50,16 @@ a {
 	text-align: center;
 }
 
+
 .hidden {
 	display: none;
+}
+
+input {
+	border: none;
+}
+
+iframe {
+	width: 100%;
+	height: 100%;
 }

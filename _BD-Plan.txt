@@ -31,16 +31,13 @@ users = [
 orders = [
   {
     // Order Information
-    --user id
-    --order number     
-    --city             
-    --postal code      
-    --street address   
-    --apartment number 
-    --phone number     
-    --pay method       
-    --pay amount       
-    --id of products[]
-    --color of product
+    --order_number    
+    --session_id
+    --order_address     
+    --phone_number     
+    --pay_method       
+    --total_amount
+    --products_id[]
+    --products_amount[]
   }
 ]

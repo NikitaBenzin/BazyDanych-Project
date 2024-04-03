@@ -113,7 +113,7 @@ header {
     background: rgb(255, 255, 255);
     top: 0;
     right: 0;
-    padding: 20px 0 0 25px;
+    padding: 20px 0 20px 25px;
     width: 294px;
     z-index: 10;
   }

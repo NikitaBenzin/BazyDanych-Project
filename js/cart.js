@@ -56,7 +56,6 @@ $(document).ready(function () {
     }
   });
 
-
 });
 
 function removeProduct(removeCartProductId) {
@@ -100,8 +99,46 @@ function updateTotal(counterContainer) {
 
   let totalAmount = 0;
   document.querySelectorAll(".totalField").forEach((field) => {
-    totalAmount += parseInt(field.textContent.replace("zl", ""));
+    totalAmount += parseInt(field.textContent.replace("zł", ""));
   });
 
   $('#total-amount').text(`${totalAmount} zł`);
+}
+
+function checkout() {
+  let productIdArray = [];
+  let productAmountArray = [];
+  let productPriceArray = [];
+  let totalAmount = $('#total-amount').text().replace("zł", "");
+
+  document.querySelectorAll('.card').forEach((item) => {
+    productIdArray.push(item.getAttribute("product-id"));
+  });
+
+  document.querySelectorAll('.quantity').forEach((item) => {
+    productAmountArray.push(item.value);
+  });
+
+  document.querySelectorAll('.totalField').forEach((item) => {
+    productPriceArray.push(item.textContent.replace("zł", "").trim());
+  });
+
+  $.ajax({
+    url: 'components/pages/order.php',
+    type: 'POST',
+    data: {
+      productIdArray: productIdArray,
+      productAmountArray: productAmountArray,
+      productPriceArray: productPriceArray,
+      totalAmount: totalAmount
+    },
+    success: function (response) {
+      $("#main").html(response);
+    }
+  });
+
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth' // Для плавной прокрутки
+  });
 }

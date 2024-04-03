@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 26, 2024 at 07:18 PM
+-- Generation Time: Apr 03, 2024 at 08:24 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -20,6 +20,25 @@ SET time_zone = "+00:00";
 --
 -- Database: `iapple_shop`
 --
+CREATE DATABASE IF NOT EXISTS `iapple_shop` DEFAULT CHARACTER SET utf8 COLLATE utf8_polish_ci;
+USE `iapple_shop`;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `orders`
+--
+
+CREATE TABLE `orders` (
+  `order_number` int(11) NOT NULL,
+  `session_id` varchar(255) NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `phone_number` varchar(20) NOT NULL,
+  `pay_method` varchar(255) NOT NULL,
+  `total_amount` varchar(10) NOT NULL,
+  `products_id` text NOT NULL,
+  `products_amount` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci COMMENT='Table with order information';
 
 -- --------------------------------------------------------
 
@@ -99,11 +118,18 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `session_id`, `favorites`, `cart`) VALUES
-(6, '6602f7bad27f8', '[]', '[]');
+(8, '6609662b32818', '[\"10\",\"11\"]', '[]');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`order_number`),
+  ADD KEY `session_id` (`session_id`);
 
 --
 -- Indexes for table `products`
@@ -126,11 +152,18 @@ ALTER TABLE `products_category`
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`user_id`);
+  ADD PRIMARY KEY (`user_id`),
+  ADD KEY `session_id` (`session_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `order_number` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `products`
@@ -148,11 +181,17 @@ ALTER TABLE `products_category`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `orders`
+--
+ALTER TABLE `orders`
+  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`session_id`) REFERENCES `users` (`session_id`);
 
 --
 -- Constraints for table `products_category`

@@ -653,3 +653,170 @@ ul {
   font-size: 15px;
   font-weight: 600;
 }
+
+/* Order */
+.order-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-top: 12px;
+}
+
+.order-section input {
+  border-radius: 15px;
+  background: rgb(214, 214, 214);
+  width: 100%;
+  height: 45px;
+  padding: 14px;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.order-section .card {
+  padding: 5px 30px 21px 30px;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.section-name {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  margin: 14px 0px 14px 0px;
+}
+
+#addressForm {
+  display: grid;
+  gap: 11px;
+}
+
+.order-delivery .section-name{
+  color: rgb(0, 0, 0);
+  font-family: Montserrat;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+#addressForm > div{
+  display: flex;
+  gap: 30px;
+}
+
+.map {
+  display: flex;
+  align-self: normal;
+}
+.order-address {
+  width: 100%;
+}
+
+.order-info {
+  display: grid;
+  gap: 14px;
+}
+
+.order-info .section-name{
+  color: rgb(0, 0, 0);
+  font-family: Montserrat;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.order-summary-values {
+  width: 100%;
+  display: grid;
+  gap: 8px;
+}
+
+.summary-name {
+  display: flex;
+  gap: 9px;
+  align-items: center;
+
+  color: rgb(0, 0, 0);
+  font-family: Montserrat;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.summary-value {
+  color: rgb(0, 0, 0);
+  font-family: Montserrat;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+#submitOrder {
+  border-radius: 10px;
+  border: none;
+  background: rgb(16, 16, 16);
+  height: 45px;
+  color: rgb(255, 255, 255);
+  font-family: Montserrat;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+#submitOrder:hover {
+  box-shadow: 0px 0px 20px 0px rgba(67, 216, 84, 0.25);
+}
+
+.order-payment > .order-summary-values > .info-row > svg {
+  transform: rotate(-90deg);
+  margin-right: 9px;
+}
+
+.order-payment .summary-name {
+  width: 100%;
+}
+
+#payMethod {
+  width: 100%;
+  border: none;
+
+  color: rgb(0, 0, 0);
+  font-family: Montserrat;
+  font-size: 15px;
+  font-weight: 500;
+
+  cursor: pointer;
+}
+
+.coupon {
+  color: rgb(131, 131, 131);
+  font-family: Montserrat;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: default;
+}
+
+.invalid-input {
+	border: 1px solid rgb(223, 100, 100);
+}
+
+
+@media (max-width: 768px) {
+  .order-section {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+.order-number {
+  min-height: 95px;
+  display: flex;
+  justify-content: center;
+}
+
+.order-number > h3 {
+  color: rgb(28, 28, 39);
+  font-size: 17px;
+  font-weight: 600;
+  margin-bottom: 0rem;
+  padding: 0px 30px;
+}
