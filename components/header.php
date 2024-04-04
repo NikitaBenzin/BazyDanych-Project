@@ -224,5 +224,5 @@ echo '
     </nav>
 
   </div>
-
+  <script src="./js/app.js"></script>
 ';
