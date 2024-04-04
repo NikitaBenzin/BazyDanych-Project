@@ -18,9 +18,9 @@
 </body>
 <script>
   window.location.replace("/");
-  // setTimeout(function() {
-  //   window.location.replace("/");
-  // }, 3000);
+  setTimeout(function() {
+    window.location.replace("/");
+  }, 3000);
 </script>
 
 </html>
