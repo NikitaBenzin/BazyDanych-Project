@@ -182,6 +182,18 @@ if (!isset($_SESSION['user_id'])) {
   $dbConnection->close();
 }
 
+$dropDownMenu = '';
+$sql = "SELECT * FROM `products` WHERE category_id = 3;";
+$result = mysqli_query($connect, $sql);
+
+if (mysqli_num_rows($result) > 0) {
+  while ($product = mysqli_fetch_assoc($result)) {
+    $dropDownMenu .= '
+      <p product-id="' . $product['id'] . '" class="link header-link" href="#">' . $product['product_name'] . '</p>
+    ';
+  }
+};
+
 
 session_write_close();
 
@@ -202,12 +214,7 @@ echo '
       <div class="drop-down-menu">
         <p>Apple</p>
         <span class="drop-down-menu-variants">
-          <a class="link" href="#">iPhone 12</a>
-          <a class="link" href="#">iPhone 12 Max</a>
-          <a class="link" href="#">iPhone 13</a>
-          <a class="link" href="#">iPhone 13 Max</a>
-          <a class="link" href="#">iPhone 13 Pro Max</a>
-          <a class="link" href="#">iPhone 14</a>
+        ' . $dropDownMenu . '
         </span>
 
       </div>
@@ -224,5 +231,5 @@ echo '
     </nav>
 
   </div>
-  <script src="./js/app.js"></script>
+  <script src="./js/header.js"></script>
 ';

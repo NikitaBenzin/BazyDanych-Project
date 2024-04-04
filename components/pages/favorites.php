@@ -95,13 +95,8 @@ echo '
   var favoriteIcons = document.querySelectorAll(".favorite-icon");
 
   favoriteIcons.forEach((icon) => {
-    var productId = icon.dataset.productId;
-
-    if (favorites.includes(productId)) {
-      icon.classList.add("in-favorites");
-    }
+    icon.classList.add("in-favorites");
   });
-    
   </script>
   <script src="../../js/favorites.js"></>
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 03, 2024 at 08:24 PM
+-- Generation Time: Apr 04, 2024 at 02:13 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -40,6 +40,13 @@ CREATE TABLE `orders` (
   `products_amount` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci COMMENT='Table with order information';
 
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`order_number`, `session_id`, `address`, `phone_number`, `pay_method`, `total_amount`, `products_id`, `products_amount`) VALUES
+(18, '6609662b32818', 'Sadova 50 / 50 | Oswiecim 32-600', '+48537139732', 'Gotówka przy odbiorze', '4099 ', '[\"18\"]', '[\"1\"]');
+
 -- --------------------------------------------------------
 
 --
@@ -71,7 +78,12 @@ INSERT INTO `products` (`id`, `product_name`, `preview_name`, `description`, `pr
 (12, 'AirPods (2. generacji)', NULL, 'Nowe AirPods to słuchawki bezprzewodowe wymyślone na nowo. Wystarczy wyjąć je z etui ładującego Lightning i są od razu gotowe do działania z Twoim iPhonem, Apple Watch, iPadem lub komputerem Mac.\r\n\r\nAirPods skojarzysz z urządzeniem jednym stuknięciem. Odtąd startują automatycznie i pozostają połączone z odtwarzaczem. AirPods wyczuwają, kiedy masz je w uszach, i przestają grać po wyjęciu.', 699, NULL, 10, 1, 2),
 (13, 'Apple Pencil (USB‑C)', NULL, 'Apple Pencil (USB‑C) doskonale nadaje się do notowania, szkicowania, dodawania adnotacji do dokumentów i wielu innych zadań. Działa z precyzją co do piksela i śladowym opóźnieniem, a do tego reaguje na kąt pochylenia. Używa się więc go równie naturalnie, jak ołówka.\r\n\r\nApple Pencil (USB‑C) paruje i ładuje się przez przewód zasilający USB‑C. Przyłącza się magnetycznie do boku iPada, co ułatwia przechowywanie.', 429, 35, 10, 1, 2),
 (14, 'Rysik Logitech Crayon do iPada', NULL, 'Logitech Crayon to wszechstronny i precyzyjny co do piksela cyfrowy rysik do iPada. Ma złącze USB-C do ładowania i jest zgodny z apkami, które współpracują z Apple Pencil. W każdym obudzi artystę, a pisze się nim tak naturalnie jak długopisem na papierze.', 379, NULL, 10, 0, 2),
-(15, 'Przejściówka z USB‑C na Apple Pencil', NULL, 'Przejściówka z USB‑C na Apple Pencil jest potrzebna do ładowania Apple Pencil (1. generacji) i parowania go z iPadem (10. generacji). Do jednego końca przejściówki należy podłączyć Apple Pencil, a do drugiego – połączony z iPadem przewód USB‑C do ładowania.', 55, NULL, 10, 0, 2);
+(15, 'Przejściówka z USB‑C na Apple Pencil', NULL, 'Przejściówka z USB‑C na Apple Pencil jest potrzebna do ładowania Apple Pencil (1. generacji) i parowania go z iPadem (10. generacji). Do jednego końca przejściówki należy podłączyć Apple Pencil, a do drugiego – połączony z iPadem przewód USB‑C do ładowania.', 55, NULL, 10, 0, 2),
+(16, 'iPhone SE', NULL, 'Sercem iPhone’a SE jest\r\nten sam superszybki czip A15 Bionic,\r\nktóry jest w iPhonie 13.\r\nZ A15 Bionic iPhone prawie wszystko robi lepiej, a apki otwierają się błyskawicznie i działają jak marzenie.\r\nDzięki wydajności grafiki\r\nobraz w grach odświeża się z niesamowitą płynnością.', 2499, NULL, NULL, 1, 3),
+(17, 'iPhone’a 13', NULL, 'Żeby osiągnąć neutralność węglową do 2030 roku, iPhone’a 13 sprzedajemy bez zasilacza i słuchawek EarPods. W pudełku znajdziesz przewód z USB‑C na Lightning do szybkiego ładowania zgodny z zasilaczami USB‑C i portami w komputerach.\r\n\r\nZachęcamy do korzystania z przewodów z USB-A na Lightning, zasilaczy i słuchawek, które już masz, a które są zgodne z tymi modelami iPhone’a. Jeśli jednak potrzebujesz nowego zasilacza lub nowych słuchawek od Apple, możesz je dokupić.', 3499, NULL, 0, 1, 3),
+(18, 'iPhone’a 14', NULL, '6,7″ lub 6,1″\r\nWyświetlacz Super Retina XDR przypis\r\n—\r\nAluminium i szkło (tył obudowy)\r\nPrzełącznik trybu dzwonka/cichego\r\n—\r\nCzip A15 Bionic\r\nz 5-rdzeniowym GPU\r\nSystem dwóch aparatów\r\nAparat główny 12 MP | Aparat ultraszerokokątny\r\n—\r\nTryb Portret z funkcją kontroli punktu i głębi ostrości\r\n2x\r\nZoom optyczny\r\nAlarmowe SOS\r\nWykrywanie wypadków przypis ³\r\nDo 26 godzin odtwarzania wideo przypis ⁴\r\nLightning\r\nObsługa USB 2\r\nFace ID', 4099, NULL, 10, 1, 3),
+(19, 'iPhone 15', NULL, 'Dynamic Island eksponuje alerty i wydarzenia na żywo, żeby Ci nie umknęły, gdy akurat robisz coś innego. Pozwoli najszybciej sterować odtwarzaniem muzyki, zobaczyć, kto dzwoni, i na przykład\r\nsprawdzić status lotu.\r\nNowa, innowacyjna konstrukcja ma tył ze szkła, które w całości nasycono kolorem. Dzięki wzmocnieniu szkła w specjalnym procesie dwukrotnej wymiany jonowej i obudowie z lotniczego aluminium iPhone 15 jest niesamowicie wytrzymały.', 4699, NULL, 10, 1, 3),
+(20, 'iPhone 15 Pro', NULL, 'iPhone 15 Pro to pierwszy iPhone o konstrukcji z tytanu klasy lotniczej stosowanego w pojazdach misji kosmicznych na Marsa.\r\nTytan wśród metali. Ma jeden z najlepszych współczynników wytrzymałości do masy, dzięki czemu iPhone Pro jest lżejszy niż kiedykolwiek. Odczujesz różnicę, gdy tylko weźmiesz go do ręki.', 5999, NULL, 10, 1, 3);
 
 -- --------------------------------------------------------
 
@@ -98,7 +110,12 @@ INSERT INTO `products_category` (`product_id`, `category_id`, `product_images`) 
 (12, 2, '[\r\n{\r\n    \"color\": \"\",\r\n    \"images\": [\r\n      \"https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/MV7N2?wid=1144&hei=1144&fmt=jpeg&qlt=95&.v=1551489688005\",\r\n      \"https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/MV7N2_AV3?wid=1144&hei=1144&fmt=jpeg&qlt=95&.v=1552508263186\"\r\n    ]\r\n  }\r\n]'),
 (13, 2, '[\r\n{\r\n    \"color\": \"\",\r\n    \"images\": [\r\n      \"https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/MUWA3?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1695933856697\",\r\n      \"https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/MUWA3_AV1?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1695933856900\"\r\n    ]\r\n  }\r\n]'),
 (14, 2, '[\r\n{\r\n    \"color\": \"\",\r\n    \"images\": [\r\n      \"https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/HQ6Q2?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1664910915657\",\r\n      \"https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/HQ6Q2_AV2?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1664910916524\"\r\n    ]\r\n  }\r\n]'),
-(15, 2, '[\r\n{\r\n    \"color\": \"\",\r\n    \"images\": [\r\n      \"https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/MQLU3?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1666191613710\",\r\n      \"https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/MQLU3_AV2?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1664477824855\"\r\n    ]\r\n  }\r\n]');
+(15, 2, '[\r\n{\r\n    \"color\": \"\",\r\n    \"images\": [\r\n      \"https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/MQLU3?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1666191613710\",\r\n      \"https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/MQLU3_AV2?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1664477824855\"\r\n    ]\r\n  }\r\n]'),
+(16, 3, '[\r\n{\r\n    \"color\": \"\",\r\n    \"images\": [\r\n      \"https://prod-api.mediaexpert.pl/api/images/gallery_500_500/thumbnails/images/36/3640925/Smartfon-APPLE-iPhone-SE-2022-5G-Polnoc-1.jpg\",\r\n      \"https://prod-api.mediaexpert.pl/api/images/gallery_500_500/thumbnails/images/36/3640925/Smartfon-APPLE-iPhone-SE-2022-5G-Polnoc-2.jpg\"\r\n    ]\r\n  }\r\n]'),
+(17, 3, '[\r\n{\r\n    \"color\": \"https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-13-finish-midnight-202108?wid=204&amp;hei=204&amp;fmt=jpeg&amp;qlt=90&amp;.v=1630016969000\",\r\n    \"images\": [\r\n      \"https://prod-api.mediaexpert.pl/api/images/gallery_500_500/thumbnails/images/32/3225298/APPLE_iPhone_13__front_czarny.jpg\",\r\n      \"https://prod-api.mediaexpert.pl/api/images/gallery_500_500/thumbnails/images/32/3225298/APPLE_iPhone_13__bok_czarny.jpg\"\r\n    ]\r\n  },\r\n{\r\n    \"color\": \"https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-13-finish-blue-202108?wid=204&amp;hei=204&amp;fmt=jpeg&amp;qlt=90&amp;.v=1630016970000\",\r\n    \"images\": [\r\n      \"https://prod-api.mediaexpert.pl/api/images/gallery_500_500/thumbnails/images/32/3225310/APPLE_iPhone_13__front_niebieski.jpg\",\r\n      \"https://prod-api.mediaexpert.pl/api/images/gallery_500_500/thumbnails/images/32/3225310/APPLE_iPhone_13__bok_niebieski.jpg\"\r\n    ]\r\n  }\r\n]'),
+(18, 3, '[\r\n{\r\n    \"color\": \"https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/finish-blue-202209?wid=204&amp;hei=204&amp;fmt=jpeg&amp;qlt=90&amp;.v=1660774892141\",\r\n    \"images\": [\r\n      \"https://prod-api.mediaexpert.pl/api/images/gallery_500_500/thumbnails/images/41/4118006/Smartfon-APPLE-14-Plus-Niebieski-1.jpg\",\r\n      \"https://prod-api.mediaexpert.pl/api/images/gallery_500_500/thumbnails/images/41/4118006/Smartfon-APPLE-14-Plus-Niebieski-2.jpg\"\r\n    ]\r\n  },\r\n{\r\n    \"color\": \"https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/finish-purple-202209?wid=204&amp;hei=204&amp;fmt=jpeg&amp;qlt=90&amp;.v=1660774892139\",\r\n    \"images\": [\r\n      \"https://prod-api.mediaexpert.pl/api/images/gallery_500_500/thumbnails/images/41/4118082/Smartfon-APPLE-14-Plus-Fioletowy-1.jpg\",\r\n      \"https://prod-api.mediaexpert.pl/api/images/gallery_500_500/thumbnails/images/41/4118082/Smartfon-APPLE-14-Plus-Fioletowy-2.jpg\"\r\n    ]\r\n  }\r\n]'),
+(19, 3, '[\r\n{\r\n    \"color\": \"https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/finish-green-202309?wid=204&amp;hei=204&amp;fmt=jpeg&amp;qlt=90&amp;.v=1692831507021\",\r\n    \"images\": [\r\n      \"https://prod-api.mediaexpert.pl/api/images/gallery_500_500/thumbnails/images/58/5860228/Smartfon-APPLE-iPhone-15-128GB-5G-6.1-Zielony-front-tyl.jpg\",\r\n      \"https://prod-api.mediaexpert.pl/api/images/gallery_500_500/thumbnails/images/58/5860228/Smartfon-APPLE-iPhone-15-128GB-5G-6.1-Zielony-front.jpg\"\r\n    ]\r\n  },\r\n{\r\n    \"color\": \"https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/finish-black-202309?wid=204&amp;hei=204&amp;fmt=jpeg&amp;qlt=90&amp;.v=1692831506982\",\r\n    \"images\": [\r\n      \"https://prod-api.mediaexpert.pl/api/images/gallery_500_500/thumbnails/images/58/5860220/Smartfon-APPLE-iPhone-15-128GB-5G-6-1-Czarny-front-tyl-3.jpg\",\r\n      \"https://prod-api.mediaexpert.pl/api/images/gallery_500_500/thumbnails/images/58/5860220/Smartfon-APPLE-iPhone-15-128GB-5G-6-1-Czarny-front.jpg\"\r\n    ]\r\n  }\r\n]'),
+(20, 3, '[\r\n{\r\n    \"color\": \"https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-pro-finish-bluetitanium-202309?wid=102&amp;hei=102&amp;fmt=jpeg&amp;qlt=95&amp;.v=1692895385157\",\r\n    \"images\": [\r\n      \"https://prod-api.mediaexpert.pl/api/images/gallery_500_500/thumbnails/images/58/5860404/Smartfon-APPLE-iPhone-15-Pro-Tytan-blekitny-1.jpg\",\r\n      \"https://prod-api.mediaexpert.pl/api/images/gallery_500_500/thumbnails/images/58/5860404/Smartfon-APPLE-iPhone-15-Pro-Tytan-blekitny-2.jpg\"\r\n    ]\r\n  },\r\n{\r\n    \"color\": \"https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-pro-finish-naturaltitanium-202309?wid=102&amp;hei=102&amp;fmt=jpeg&amp;qlt=95&amp;.v=1692895385156\",\r\n    \"images\": [\r\n      \"https://prod-api.mediaexpert.pl/api/images/gallery_500_500/thumbnails/images/58/5860372/Smartfon-APPLE-iPhone-15-Pro-Tytan-naturalny-1.jpg\",\r\n      \"https://prod-api.mediaexpert.pl/api/images/gallery_500_500/thumbnails/images/58/5860372/Smartfon-APPLE-iPhone-15-Pro-Tytan-naturalny-2.jpg\"\r\n    ]\r\n  }\r\n]');
 
 -- --------------------------------------------------------
 
@@ -118,7 +135,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `session_id`, `favorites`, `cart`) VALUES
-(8, '6609662b32818', '[\"10\",\"11\"]', '[]');
+(8, '6609662b32818', '[\"18\"]', '[\"10\"]');
 
 --
 -- Indexes for dumped tables
@@ -163,19 +180,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_number` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `order_number` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `products_category`
 --
 ALTER TABLE `products_category`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `users`

@@ -1,5 +1,4 @@
 $(document).ready(function () {
-  scrollToTop();
   // PHP
   $(".etui-types-card").click(function () {
     var productId = $(this).attr("product-id"); // Получить ID товара из атрибута data
@@ -11,6 +10,18 @@ $(document).ready(function () {
     var productId = $(this).attr("product-id"); // Получить ID товара из атрибута data
     scrollToTop();
     getProductInfo(productId); // Вызвать функцию для получения информации о товаре
+  });
+
+  $(".header-link").click(function () {
+    var productId = $(this).attr("product-id");
+    scrollToTop();
+    getProductInfo(productId);
+  });
+
+  $(".link").click(function () {
+    var page = $(this).attr("page");
+    scrollToTop();
+    $("#main").load(page);
   });
 
   // Adding to the favorites list

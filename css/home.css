@@ -60,7 +60,7 @@ ul {
 .etui-types-card {
   cursor: pointer;
   border-radius: 30px;
-  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.01);
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
   background: rgb(255, 255, 255);
   width: 100%;
   height: 100%;
@@ -127,7 +127,7 @@ ul {
 .card {
   border-radius: 30px;
 
-  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.01);
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
   background: rgb(255, 255, 255);
   position: relative;
   display: flex;
@@ -267,6 +267,7 @@ ul {
 
   width: 100%;
   padding: 22px 13px 16px 13px;
+  gap: 8px;
 }
 
 #small-images img {
@@ -819,4 +820,104 @@ ul {
   font-weight: 600;
   margin-bottom: 0rem;
   padding: 0px 30px;
+}
+
+/* Contact */
+
+.contact {
+  display: grid;
+  grid-template-columns: 1fr 97px;
+  width: 90%;
+  gap: 60px;
+}
+
+.contact > .card > p{
+  color: rgb(28, 28, 39);
+  font-size: 17px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.contact > .card{
+  padding: 15px 17px 45px 17px;
+  align-items: start;
+}
+
+.social-links {
+  display: grid;
+  gap: 14px;
+  align-content: flex-start;
+}
+
+.social-links > .card{
+  height: 85px;
+  justify-content: center;
+}
+
+.contact-number {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  width: 90%;
+  margin-top: 40px;
+}
+
+.contact-number > h3{
+  margin-bottom: 0rem;
+}
+
+.contact > .card {
+  height: 454px;
+}
+
+.contact > .card .map {
+  height: 100%;
+}
+
+@media (max-width: 768px) {
+  .contact {
+    grid-template-columns: 1fr;
+  }
+
+  .social-links {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .contact-number {
+    justify-content: center;
+  }
+
+  #main {
+    margin-bottom: 30px;
+  }
+}
+
+/* STATUTE */
+.statute {
+  display: grid;
+  gap: 33px;
+}
+
+.statute > .card {
+ padding: 15px 29px;
+ align-items: flex-start;
+
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+  background: rgb(255, 255, 255);
+}
+
+.statute > .card > h3{
+  color: rgb(28, 28, 39);
+  font-family: Montserrat;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.statute > .card > p{
+  color: rgb(0, 0, 0);
+  font-family: Montserrat;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 21px;
+  padding-left: 15px;
 }
