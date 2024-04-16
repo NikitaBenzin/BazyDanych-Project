@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $dbConnection = mysqli_connect($db_server, $db_user, $db_pass, $db_name);
 
     $sessionId = $_SESSION['user_id'];
-    // Получение текущего массива favorites из базы данных
+    // Pobieranie aktualnej tablicy ulubionych z bazy danych
     $query = "SELECT favorites FROM users WHERE session_id = '$sessionId'";
     $result = mysqli_query($dbConnection, $query);
 
@@ -20,17 +20,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       $row = mysqli_fetch_assoc($result);
       $favorites_json = $row['favorites'];
 
-      // Преобразование JSON-строки в PHP-массив
+      // Konwersja ciągu JSON na tablicę PHP
       $favorites = json_decode($favorites_json, true);
 
-      // Добавление нового элемента в массив
+      // Dodanie nowego elementu do tablicy
       $new_item = $_POST['favoriteProductId'];
       $favorites[] = $new_item;
 
-      // Преобразование обновленного массива в JSON-строку
+      // Konwersja zaktualizowanej tablicy na ciąg JSON
       $updated_favorites_json = json_encode($favorites);
 
-      // Обновление записи в базе данных с обновленным значением favorites
+      // Zaktualizuj wpis w bazie danych o zaktualizowaną wartość ulubionych
       $update_query = "UPDATE users SET favorites = '$updated_favorites_json' WHERE session_id = '$sessionId'";
       mysqli_query($dbConnection, $update_query);
     }
